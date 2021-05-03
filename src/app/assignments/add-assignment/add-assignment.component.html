@@ -1,0 +1,65 @@
+<div class="container">
+  <mat-horizontal-stepper>
+    <mat-step>
+      <p>Etape 1</p>
+      <form ngForm #assignmentForm class="form" (submit)="onSubmit(); assignmentForm.reset()">
+        <mat-form-field>
+          <mat-label>Choisissez un nom</mat-label>
+          <input required matInput placeholder="Nom de l'assignment" [(ngModel)]="nomAssignment" name="nom">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Choisissez une date de rendu</mat-label>
+
+          <input required matInput [matDatepicker]="picker" [(ngModel)]="dateDeRendu" name="date">
+
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <div>
+          <button mat-button mat-raised-button color="primary" matStepperNext type="button">Next</button>
+        </div>
+
+      </form>
+    </mat-step>
+    <mat-step>
+      <p>Etape 2</p>
+      <form ngForm #assignmentForm class="form" (submit)="onSubmit(); assignmentForm.reset()">
+        <mat-form-field>
+          <mat-label>Choisissez un auteur</mat-label>
+          <input required matInput placeholder="Nom de l'auteur" [(ngModel)]="auteurAssignment" name="auteur">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Choisissez une matière</mat-label>
+          <input required matInput placeholder="Nom de la matière" [(ngModel)]="matiereAssignment" name="matiere">
+        </mat-form-field>
+
+        <div>
+          <button mat-button mat-raised-button color="accent" matStepperPrevious type="button">Back</button>
+          <button mat-button mat-raised-button color="primary" matStepperNext type="button">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <p>Etape 3</p>
+      <form ngForm #assignmentForm class="form" (submit)="onSubmit(); assignmentForm.reset()">
+        <mat-form-field>
+          <mat-label>Saisir une note</mat-label>
+          <input required matInput type="number" placeholder="Note de l'assignment" [(ngModel)]="noteAssignment" name="note">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Remarques</mat-label>
+          <textarea required matInput placeholder="Remarques" rows="  7" [(ngModel)]="remarquesAssignment" name="remarques"></textarea>
+        </mat-form-field>
+        <nav>
+          <button mat-stroked-button color="primary">
+            Ajouter un devoir
+          </button>
+        </nav>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
